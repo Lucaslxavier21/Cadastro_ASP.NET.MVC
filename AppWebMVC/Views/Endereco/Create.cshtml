@@ -1,0 +1,40 @@
+﻿@model EnderecoModel
+@{
+
+    ViewData["Title"] = "Cadastrar Endereço";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Cadastrar Endereço</h1>
+
+</div>
+
+<form asp-controller="Endereco" asp-action="Create" method="post">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="inputEndereco">Endereco</label> 
+      <input type="text" asp-for="Endereco" class="form-control" placeholder="Digite seu Endereço">
+      @Html.ValidationMessageFor(x => x.Endereco)
+    </div>
+    <div class="form-group"> 
+      <label for="inputCEP">CEP</label>
+      <input type="text" asp-for="CEP" class="form-control" placeholder="Digite seu CEP">
+      @Html.ValidationMessageFor(x => x.CEP)
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputCidade">Cidade</label>
+    <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a sua Cidade">
+    @Html.ValidationMessageFor(x => x.Cidade)
+  </div>
+  <div class="form-group">
+    <label for="inputEstado">Estado</label>
+    <input type="text" asp-for="Estado" class="form-control" placeholder="Digite o nome do seu Estado">
+    @Html.ValidationMessageFor(x => x.Estado)
+  </div>
+  <div class="form-group">
+  </div>
+  <button type="submit" class="btn btn-primary" asp-action="Create">Adicionar</button>
+  <a class="btn btn-secundary" asp-controller="Endereco" asp-action="Index" role="button">Voltar</a>
+</form>

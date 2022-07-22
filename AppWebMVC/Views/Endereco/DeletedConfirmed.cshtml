@@ -1,0 +1,12 @@
+﻿@model EnderecoModel
+@{
+
+    ViewData["Title"] = "Confirmação Apagar Endereço";
+}
+
+<div class="text-center">
+    <h3>Realmente Deseja Apagar o Endereço Cadastrado ?</h3>
+</div>
+
+<a class="btn btn-primary btn-block" role="button" asp-action="Index" asp-controller="Endereco">Cancelar Exclusão</a>
+<a class="btn btn-danger btn-block" role="button" asp-action="Remove" asp-controller="Endereco" asp-route-id="@Model.Id">Confirmar Exclusão</a>

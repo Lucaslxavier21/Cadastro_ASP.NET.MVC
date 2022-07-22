@@ -1,0 +1,50 @@
+﻿@model List<EnderecoModel>
+@{
+    ViewData["Title"] = "Listagem de Endereços";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Endereco" asp-action="Create">Adicionar Novo Endereço</a>
+    </div>
+
+    <h1 class="display-4">Listagem de Endereços</h1>
+
+<table class="table caption-top">
+  <caption>Lista de Endereços</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Endereco</th>
+      <th scope="col">CEP</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">Estado</th>
+      <th scope="col"></th> 
+    </tr>
+  </thead>
+  <tbody>
+    @if(Model != null && Model.Any())
+    {
+        foreach(EnderecoModel endereco in Model)
+        { 
+            <tr>
+              <th scope="row">@endereco.Id</th>
+              <td>@endereco.Endereco</td>
+              <td>@endereco.CEP</td>
+              <td>@endereco.Cidade</td> 
+              <td>@endereco.Estado</td> 
+              <td>
+                <div class="btn-group" role="group">
+                  <a role="button" class="btn btn-primary" asp-route-id="@endereco.Id" asp-controller="Endereco" asp-action="EditUser">Editar Endereço</a>
+                  <a role="button" class="btn btn-danger" asp-route-id="@endereco.Id" asp-controller="Endereco" asp-action="DeletedConfirmed">Apagar Endereço</a> 
+                </div> 
+              </td>
+            </tr> 
+        }
+    } 
+  </tbody>
+</table>
+</div>
+
+
